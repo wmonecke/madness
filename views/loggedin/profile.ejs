@@ -9,13 +9,13 @@
 
   <div class="profileoptions" id="sliderresponse">
     <div class="option">
-      <p> <a href="#"> My Profile </a> </p>
+      <p> <a href="/userinfo"> My Profile </a> </p>
     </div>
     <div class="option">
       <p> <a href="#"> My Stats </a> </p>
     </div>
     <div class="option">
-      <p> <a href="#"> Log Out </a> </p>
+      <p> <a href="/logout"> Log Out </a> </p>
     </div>
   </div>
 
@@ -24,7 +24,7 @@
       <img src="/images/loggedin6.jpg" alt="Profile Picture">
     </div>
 
-    <p> Hi, username </p>
+    <p> Hi, <%= userInfo.firstName %> </p>
     <div class="time">
       <p class="date">Today is</p>
       <time id="date"></time>

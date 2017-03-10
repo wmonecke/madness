@@ -1,0 +1,97 @@
+<div class="userinfobackground">
+
+  <nav>
+    <ul>
+      <a href="/profile"><p> madness </p></a>
+    </ul>
+  </nav>
+
+  <section class="userinfowrapper">
+
+    <div class="userpicture">
+      <img src="/images/loggedin6.jpg" alt="Profile Picture">
+    </div>
+
+    <div class="userinfoedit">
+      <form class="userinfoform" action="/userinfoupdate" method="post">
+        <label for="firstName"> First Name:</label>
+        <input type="text" name="firstName" value="<%= user.firstName %>"> <br><br>
+        <label for="firstName"> Last Name:</label>
+        <input type="text" name="lastName" value="<%= user.lastName %>"> <br><br>
+        <hr>
+        <br>
+        <label for="gender"> I am a:</label> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <label for="guy">Guy</label>
+        <input id="guy" type="checkbox" >
+        <label for="girl">Girl</label>
+        <input id="girl" type="checkbox">
+        <input id="genderinput" type="text" name="gender" value=" <%= user.gender %> "><br> <br>
+
+        <label for="weight">My current goal:</label> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <label class="" for="strong"> Get Strong </label>
+        <input id="strong" type="checkbox">
+
+        <label class="" for="lean"> Get Lean </label>
+        <input id="lean" type="checkbox">
+
+        <label class="" for="thin"> Get Thin </label>
+        <input id="thin" type="checkbox"> <br><br>
+
+        <label for="weight">My current weight:</label>
+        <input type="text" name="weight" value="<%= user.weight %>" maxlength="3"> <span id="metric"></span> <br><br>
+
+        <input id="goalinput" type="text" name="goal" value=" <%= user.goal %>">
+
+        <button type="submit" name="button">SAVE CHANGES</button>
+
+        <% if (user.gender === 'male') { %>
+          <script>
+          var input = document.getElementById('guy');
+          input.setAttribute('checked', '');
+          </script>
+        <% } %>
+
+        <% if (user.gender === 'female') { %>
+          <script>
+          var inputtwo = document.getElementById('girl');
+          inputtwo.setAttribute('checked', '');
+          </script>
+        <% } %>
+
+        <% if (user.metric === '1') { %>
+          <script>
+          document.getElementById('metric').innerHTML = '&nbsp Kg.';
+          </script>
+        <% } %>
+
+        <% if (user.metric === '0') { %>
+          <script>
+          document.getElementById('metric').innerHTML = '&nbsp lbs.';
+          </script>
+        <% } %>
+
+        <% if (user.goal === 'strong') { %>
+          <script>
+          document.getElementById('strong').setAttribute('checked', '');
+          </script>
+        <% } %>
+
+        <% if (user.goal === 'lean') { %>
+          <script>
+          document.getElementById('lean').setAttribute('checked', '');
+          </script>
+        <% } %>
+
+        <% if (user.goal === 'thin') { %>
+          <script>
+          document.getElementById('thin').setAttribute('checked', '');
+          </script>
+        <% } %>
+
+
+      </form>
+    </div>
+
+  </section>
+
+</div>

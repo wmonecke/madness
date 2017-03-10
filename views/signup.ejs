@@ -8,27 +8,33 @@
     <p> madness </p>
   </nav>
 
-  <section class="signupinfo">
-    <div class="login">
-      <h2>Login</h2>
-      <hr>
-      <form class="loginform" action="/login" method="post">
-        <label for="username">Username:</label>
-        <input class="inputstylez" id="username" type="text" name="username" value="" placeholder="username"><br><br>
-        <label for="password">Password:</label>
-        <input class="inputstylez" id="password" type="text" name="password" value="" placeholder="password">
-      </form>
+  <div class="journey">
+    <p> “A journey starts here.” </p>
+  </div>
+  <% if (typeof message !== "undefined") { %>
+    <div class="error-message"><%= message %></div>
+  <% } %>
 
-      <hr class="loginhr">
-      <p>Or just login in with ...</p>
-      <button class="facebook" type="button" name="button"><a href="#">&nbsp &nbsp Facebook <img src="/images/fb-logo.png" alt=""></a></button>
-    </div>
+  <section class="signupinfo">
     <div class="signup">
       <h2>Sign Up</h2>
       <hr>
       <form class="signupform" action="/signup" method="post">
-
+        <label for="firstname">First Name:</label>
+        <input class="inputstylez" id="firstname" type="text" name="firstname" value="" placeholder="first name"><br><br>
+        <label for="lastname">Last Name:</label>
+        <input class="inputstylez" id="lastname" type="text" name="lastname" value="" placeholder="last name"><br><br>
+        <label for="username">Username:</label>
+        <input class="inputstylez" id="username" type="text" name="username" value="" placeholder="username"><br><br>
+        <label for="password">New Password:</label>
+        <input class="inputstylez" id="password" type="password" name="password" value="" placeholder="password"><br>
+        <button type="submit" name="button"> DONE </button> <br> <br>
+        <hr>
       </form>
+      <p> Or Sign Up with ...</p>
+      <a href="/facebooklogin"><img src="/images/fb-logo.png" alt=""></a>
+      <p class="secondp"> OR</p>
+      <a class="seconda" href="/googlelogin"><img class="secondimage" src="/images/google-logo.png" alt=""></a>
     </div>
   </section>
 

@@ -10,15 +10,43 @@
   <nav>
 
     <ul>
-      <p> <a href="/loggedin"> madness </a> </p>
+      <p> <a href="/"> madness </a> </p>
       <li> <a href="/signup"> Sign Up </a> </li>
-      <li> <a href="#"> Log In </a> </li>
+      <li id="logintrigger"> <a href="#"> Log In </a> </li>
     </ul>
   </nav>
 
+  <% if (typeof message !== "undefined") { %>
+    <div class="error-message"><%= message %></div>
+  <% } %>
+
+  <% if (typeof messageTwo !== "undefined") { %>
+    <div class="success-message"><%= messageTwo %></div>
+  <% } %>
+
+  <div class="login" id="loginreact">
+    <div class="wrapper">
+
+      <form class="loginform" action="/login" method="post">
+        <label for="username">Username:</label>
+        <input class="inputstylez" id="username" type="text" name="username" value="" placeholder="username"><br><br>
+        <label for="password">Password:</label>
+        <input class="inputstylez" id="password" type="password" name="password" value="" placeholder="password"> <br>
+        <button type="submit" name="button">LOG IN</button>
+      </form>
+
+      <hr class="loginhr">
+      <p>Or just login in with ...</p>
+      <a href="/auth/facebook"><img src="/images/fb-logo.png" alt=""></a>
+      <p class="secondp"> OR</p>
+      <a class="seconda" href="/googlelogin"><img class="secondimage" src="/images/google-logo.png" alt=""></a>
+
+    </div>
+  </div>
+
   <h2> The go-to place to achieve  <br> a difference </h2>
 
-  <h5> - your FREE & FUN home workouts - </h5>
+  <h5> - your FREE home workouts - </h5>
 
   <a class="landingbutton" href="/signup"> Take Control </a>
 

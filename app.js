@@ -27,6 +27,8 @@ mongoose.connect(process.env.MONGODB_URI); //Connecting to the passport-app Data
 
 const app = express();
 
+
+
 //---------------------- MIDDLEWARE ------------------------
 // VIEWS setup - engine
 app.set('views', path.join(__dirname, 'views'));
@@ -46,6 +48,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
 
+
 // ** SESSION setup ** Gives browser command to create cookie and maintain session
 app.use(session({
   secret: "my lil' madness",
@@ -54,22 +57,43 @@ app.use(session({
 //store: command to connect mongo-connect, which saves the session in the database!
 }));
 
+
 // ** PASSPORT & FLASH setup **
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+// ----------------------------- SERIALIZE AND DESERIALIZE ------------------------------
+passport.serializeUser((user, cb) => {
+  if (user.provider) {
+    cb(null, user);
+  } else {
+    cb(null, user._id);
+  }
+});
+
+passport.deserializeUser((id, cb) => {
+  if (id.provider) {
+    cb(null, id);
+    return;
+  }
+  User.findOne({ "_id": id }, (err, user) => {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+
+
+
 // Facebook Strategy Setup
-// passport.use(new fbStrategy({
-//   clientID: process.env.FB_CLIENT_ID,
-//   clientSecret: process.env.FB_CLIENT_SECRET,
-//   callbackURL: process.env.HOST_ADDRESS + "/auth/facebook/callback"
-// }, (accessToken, refreshToken, profile, done) => {
-//     //Save user here because if not youll have to do cases like: "Is user in db? if yes: do this || if not: do that"
-//     // User.find( {id of fb}, { what i wanna show}, (err, result)=>{}); --I might want to do this for the second project
-//     done(null, profile);
-// }));
-//
+passport.use(new fbStrategy({
+  clientID: process.env.FB_CLIENT_ID,
+  clientSecret: process.env.FB_CLIENT_SECRET,
+  callbackURL: process.env.HOST_ADDRESS + "/auth/facebook/callback"
+}, saveSocialUser));
+
 // // Google Strategy Setup
 // passport.use(new GoogleStrategy({
 //   clientID: process.env.GOOGLE_CLIENT_ID,
@@ -80,27 +104,49 @@ app.use(passport.session());
 //   return next(null, profile);
 // }));
 //
-// // Serialized and Deserialized, to minimize session information in db
-// passport.serializeUser((user, cb) => {
-//     if (user.provider) {
-//         cb(null, user);
-//     } else {
-//         cb(null, user._id);
-//     }
-// });
-//
-// passport.deserializeUser((id, cb) => {
-//     if (id.provider) {
-//         cb(null, id);
-//         return;
-//     }
-//     User.findOne({ "_id": id }, (err, user) => {
-//         if (err) { return cb(err); }
-//         cb(null, user);
-//     });
-// });
+// Serialized and Deserialized, to minimize session information in db
 //----------------------------------------------------------
 
+function saveSocialUser (accessToken, refreshToken, profile, done) {
+  // See if there's a user from the provider with the given id.
+  User.findOne(
+    { provider: profile.provider, providerId: profile.id },
+    (err, userDocument) => {
+      // If there's an error or a user was retrieved, notify Passport by calling "done()".
+      if (err || userDocument) {
+        done(err, userDocument);
+        return;
+      }
+
+      // Otherwise attempt to save a new user (no username or password).
+      const names = profile.displayName.split(' ');
+      const theUser = new User({
+        firstName: names[0],
+        lastName: names.slice(1).join(' '),
+        provider: profile.provider,
+        providerId: profile.id
+      });
+
+      theUser.save((err, userDocument) => {
+        // Notify Passport about the result by calling "done()".
+        done(err, userDocument);
+      });
+    }
+  );
+}
+
+
+
+// Send logged-in user info into every view
+app.use((req, res, next) => {
+  if (req.isAuthenticated()) {
+    res.locals.user = req.user;
+  } else {
+    res.locals.user = null;
+  }
+
+  next();
+});
 
 
 //--------------- ROUTES GO HERE ---------------------------

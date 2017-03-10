@@ -94,6 +94,136 @@ body {
     }
   }
 
+  .error-message {
+    position: absolute;
+    top: 10vh;
+    width: 100vw;
+    background-color: orangered;
+    color: white;
+    font-size: 1em;
+  }
+
+  .success-message {
+    position: absolute;
+    top: 10vh;
+    width: 100vw;
+    background-color: lightgreen;
+    color: white;
+    font-size: 1em;
+  }
+
+
+  .login {
+    display: none;
+    position: absolute;;
+    top:10vh;
+    right: 2vw;
+    width: 25vw;
+    height: 70vh;
+    float: left;
+    background-color: rgba(0,0,0,0.9);
+    border: 1px solid white;
+    border-top: 1px solid transparent;
+
+      .wrapper {
+
+        position: relative;
+        bottom: 2vh;
+
+        .loginform {
+          position: relative;
+          top: 7vh;
+
+          label {
+            color: white;
+          }
+
+          .inputstylez {
+            outline: none;
+            height: 3vh;
+            border-radius: 4px;
+            border: 1px solid white;
+            text-align: center;
+            font-size: 0.8em;
+          }
+
+          #password {
+            position: relative;
+            left: 0.2vw;
+          }
+          button[type="submit"] {
+            outline: none;
+            position: relative;
+            top: 4vh;
+            padding: 1vh 2vw 1vh 2vw;
+            font-size: 1em;
+            color: #ff5757;
+            background-color: white;
+            border: 2px solid white;
+            border-radius: 4px;
+            transition: background-color .5s ease, color .5s ease, border-color .5s ease;
+            &:hover {
+              background-color: #ff5757;
+              color: white;
+              border-color: #ff5757;
+            }
+          }
+        }
+
+        .loginhr {
+          position: relative;
+          top: 15vh;
+          width:70%;
+          margin:auto;
+          border-color: #ff5757;
+        }
+
+        p {
+          position: relative;
+          top: 18vh;
+          color: white;
+        }
+
+        a {
+          position: relative;
+          top: 24vh;
+          height: 7vh;
+          text-align: left;
+          font-size: 1.5em;
+          border: 1px solid white;
+          border-radius: 4px;
+          background-color: white;
+          padding: 1.5vh 2vw 1.5vh 2vw;
+
+          img {
+            position: relative;
+            width: 10vw;
+            top: 0.7vh;
+          }
+        }
+
+        .secondp {
+          position: relative;
+          top: 28.5vh;
+        }
+
+        .secondimage {
+          width: 17vw;
+          height: 7vh;
+        }
+
+        .seconda {
+          position: relative;
+          background-color: transparent;
+          border-color: transparent;
+          top: 30vh;
+          width: 0vw;
+        }
+      }
+
+    }
+
+
   h2 {
     margin: 12vh 0vw 25vh 0vw;
     font-size: 4em;
@@ -188,14 +318,27 @@ body {
 }
 // closing-- CUSTOMIZING LANDING FOOTER
 
-// --------------------- LOGGED IN PAGE ----------------------------
+// --------------------- WELCOME PAGE ----------------------------
 
 // LOGGED IN BACKGROUND AND DESCRIPTION BOX STYLING
 .loggedinbackground {
+  display: none;
   position: absolute;
   color: white;
   height: 100%;
   z-index: -2;
+
+  #gendervalue {
+    display: none;
+  }
+
+  #metricvalue {
+    display: none;
+  }
+
+  #goalvalue {
+    display: none;
+  }
 
     .loggedincontent {
       color: white;
@@ -295,6 +438,38 @@ body {
           text-align: center;
         }
 
+        input[type="checkbox"] {
+        	-webkit-appearance: none;
+        	background-color: #fafafa;
+        	border: 1px solid #cacece;
+        	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+        	padding: 9px;
+        	border-radius: 3px;
+        	display: inline-block;
+        	position: relative;
+          top: 0.5vh;
+        }
+
+        input[type="checkbox"]:active, input[type="checkbox"]:checked:active {
+	        box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+        }
+
+        input[type="checkbox"]:checked {
+        	background-color: #e9ecee;
+        	border: 1px solid #adb8c0;
+        	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+        	color: #99a1a7;
+        }
+
+        input[type="checkbox"]:checked:after {
+        	content: '\2714';
+        	font-size: 14px;
+        	position: absolute;
+        	top: 0px;
+        	left: 3px;
+        	color: #99a1a7;
+        }
+
         .checkboxes {
           padding: 5vh;
           font-size: 0.4em;
@@ -358,7 +533,7 @@ body {
           display: inline-block;
           font-weight: bold;
           font-size: 2.4em;
-          padding: 2vh 2vw 10vh 2vw;
+          padding: 2vh 0vw 10vh 3vw;
           color: #ff5757;
         }
 
@@ -377,7 +552,6 @@ body {
             font-weight: 800;
           }
         }
-
       }
     }
 
@@ -412,7 +586,7 @@ body {
 }
 
 .profilebackground {
-  background-color: #f0f0f0;
+  background-color: rgb(240,240,240);
   min-width: 1050px;
   height: 100vh;
   display: none;
@@ -631,6 +805,7 @@ body {
 }
 
 .signupbackground {
+  display: none;
   position: absolute;
   z-index: -2;
   height: 100vh;
@@ -642,6 +817,7 @@ body {
 }
 
 .signupwrapper {
+  display: none;
   position: absolute;
   z-index: 1;
 
@@ -651,19 +827,37 @@ body {
     padding: 3.5vh 4vw 3.5vh 4vw;
   }
 
+  .journey {
+    top: 40vh;
+    font-style: italic;
+    color: white;
+    position: absolute;
+    font-size: 2em;
+    z-index: 6;
+    right: -43vw;
+  }
+
+  .error-message {
+    text-align: center;
+    color: white;
+    position: absolute;
+    z-index: 5;
+    top: 30vh;
+    right: -86vh;
+    font-size: 1.2em;
+    background-color: orangered;
+    max-width: 25vw;
+  }
+
   .signupinfo {
     font-weight: 100;
     text-align: center;
     color: white;
     width: 50vw;
     height: 70vh;
-    background-color: rgba(0, 0, 0, 0.85);
     position: relative;
     left: 7vw;
     border-radius: 12px;
-    -webkit-box-shadow: 8px 8px 20px 0px rgba(0,0,0,0.70);
-    -moz-box-shadow: 8px 8px 20px 0px rgba(0,0,0,0.70);
-    box-shadow: 8px 8px 20px 0px rgba(0,0,0,0.70);
 
   hr {
     width: 18vw;
@@ -674,20 +868,83 @@ body {
   }
 
   h2 {
-    font-weight: 100;
     position: relative;
     top: 1.5vh;
+    font-weight: 100;
   }
 
-  .login {
-    width: 25vw;
-    height: 70vh;
-    float: left;
+  .signup {
+    position: absolute;
+    right: 10vw;
+    bottom: -10vh;
+    width: 30vw;
+    height: 90vh;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.85);
+    float: right;
+    box-shadow: -4px 0px 8px 0px rgba(220,220,220,0.3);
 
-
-      .loginform {
+      .signupform {
         position: relative;
         top: 9vh;
+
+        label[for="firstname"] {
+          position: relative;
+          right: 1.3vw;
+        }
+
+        label[for="lastname"] {
+          position: relative;
+          right: 1.3vw;
+        }
+
+        label[for="username"] {
+          position: relative;
+          right: 1.5vw;
+        }
+
+        label[for="password"] {
+          position: relative;
+          right: 0.3vw;
+        }
+
+        input[id="firstname"] {
+          position: relative;
+          left: 1.4vw;
+        }
+
+        input[id="lastname"] {
+          position: relative;
+          left: 1.4vw;
+        }
+
+        input[id="username"] {
+          position: relative;
+          left: 1.5vw;
+        }
+
+        input[id="password"] {
+          position: relative;
+          left: 0.2vw;
+        }
+
+        button[type="submit"] {
+          outline: none;
+          position: relative;
+          top: 4vh;
+          padding: 1vh 2vw 1vh 2vw;
+          font-size: 1em;
+          color: #ff5757;
+          background-color: white;
+          border: 2px solid white;
+          border-radius: 4px;
+          transition: background-color .5s ease, color .5s ease, border-color .5s ease;
+          &:hover {
+            background-color: #ff5757;
+            color: white;
+            border-color: #ff5757;
+          }
+        }
 
         .inputstylez {
           outline: none;
@@ -697,49 +954,196 @@ body {
           text-align: center;
           font-size: 0.8em;
         }
-
-        #password {
-          position: relative;
-          left: 0.2vw;
-        }
-      }
-
-      .loginhr {
-        position: relative;
-        top: 15vh;
-        border-color: #ff5757;
       }
 
       p {
         position: relative;
-        top: 19vh;
+        top: 15vh;
       }
 
-      button {
+      a {
+        position: relative;
+        top: 22vh;
+        height: 7vh;
         text-align: left;
         font-size: 1.5em;
-        height: 7vh;
-        width: 16vw;
-        border-radius: 4px;
         border: 1px solid white;
+        border-radius: 4px;
+        background-color: white;
+        padding: 1.5vh 2vw 1.5vh 2vw;
+
+        img {
+          position: relative;
+          width: 10vw;
+          top: 0.7vh;
+        }
       }
 
-      .facebook {
+      .secondp {
         position: relative;
-        top:23vh;
-        background: rgb(59,89,152); /* Old browsers */
-        background: -moz-linear-gradient(-45deg, rgba(59,89,152,1) 1%, rgba(93,146,255,1) 100%, rgba(32,124,202,1) 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(-45deg, rgba(59,89,152,1) 1%,rgba(93,146,255,1) 100%,rgba(32,124,202,1) 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(135deg, rgba(59,89,152,1) 1%,rgba(93,146,255,1) 100%,rgba(32,124,202,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */      }
+        top: 26.5vh;
+      }
+
+      .secondimage {
+        width: 17vw;
+        height: 7vh;
+      }
+
+      .seconda {
+        position: relative;
+        background-color: transparent;
+        border-color: transparent;
+        top: 28vh;
+        width: 0vw;
+      }
+    }
+  }
+}
+
+// --------------------- USER SETTINGS CSS ----------------------
+
+.userinfobackground {
+  display: none;
+  background-color: rgb(240,240,240);
+  text-align: center;
+  height: 100vh;
+
+  nav {
+    min-width: 1050px;
+    width: 100vw;
+    font-weight: 100;
+    box-shadow: 0em 0.05em 2em #cecece;
+    height: 10vh;
+    background-color: black;
+    color: white;
+
+    ul {
+      padding: 3.5vh 4vw 3.5vh 4vw;
+
+      p {
+        display: inline;
+        float: left;
+      }
+    }
+  }
+
+  .userinfowrapper {
+    margin: auto;
+    width: 80vw;
+    height: 70vh;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0.85);
+    position: relative;
+    top: 10vh;
+  }
+
+  .userpicture {
+    position: relative;
+    top: 4vh;
+    left: 5vh;
+    text-align: center;
+    display: flex;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 7px solid #ff5757;
+    transition: border-color 1s ease;
+    &:hover {
+      border-color: white;
     }
 
-  .signup {
-    width: 25vw;
-    height: 70vh;
-    border-radius: 12px;
-    background-color: rgba(240,240,240, 0.2);
-    float: right;
-    box-shadow: -4px 0px 8px 0px rgba(255,255,255,0.3);
+    img {
+      position: relative;
+      width: 150px;
+      height: auto;
+    }
+  }
+
+  .userinfoedit {
+    position: absolute;
+    top: 10vh;
+    left: 18vw;
+    width: 60vw;
+    height:60vh;
+    text-align: left;
+    color: white;
+
+    input {
+      outline: none;
+      height: 3vh;
+      border-radius: 4px;
+      border: 1px solid white;
+      text-align: center;
+      font-size: 0.8em;
+      margin-left: 0.8vw;
+    }
+
+    input[type="checkbox"] {
+      -webkit-appearance: none;
+      background-color: #fafafa;
+      border: 1px solid #cacece;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+      padding: 9px;
+      border-radius: 3px;
+      display: inline-block;
+      position: relative;
+      margin-right: 2.5vw;
+      top: 0.5vh;
+    }
+
+    input[type="checkbox"]:active, input[type="checkbox"]:checked:active {
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    input[type="checkbox"]:checked {
+      background-color: #e9ecee;
+      border: 1px solid #adb8c0;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+      color: #99a1a7;
+    }
+
+    input[type="checkbox"]:checked:after {
+      content: '\2714';
+      font-size: 14px;
+      position: absolute;
+      top: 0px;
+      left: 3px;
+      color: #ff5757;
+    }
+
+    hr {
+      border-color: #ff5757;
+    }
+
+    #genderinput {
+      display: none;
+    }
+
+    #goalinput {
+      display: none;
+    }
+
+      button[type='submit'] {
+        position: relative;
+        color: #ff5757;
+        top: 4vh;
+        left: 15vw;
+        padding: 2vh;
+        background-color: white;
+        border-radius: 4px;
+        border-color: white;
+        border-style: solid;
+        font-size: 20px;
+        cursor: pointer;
+        transition: background-color .5s ease, border-color .6s ease;
+        outline: none;
+        &:hover {
+          color: white;
+          background-color: #ff5757;
+          border-color: #ff5757;
+      }
     }
   }
 }

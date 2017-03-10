@@ -1,7 +1,11 @@
 // JS for the Profile page and other related pages.
 $(document).ready(function () {
-  $('.profilebackground').fadeIn(2200);
-  $('.signupwrapper').fadeIn(2200);
+  $('.profilebackground').fadeIn(600);
+  $('.loggedinbackground').fadeIn(600);
+  $('.signupwrapper').fadeIn(600);
+  $('.signupbackground').fadeIn(600);
+  $('.userinfobackground').fadeIn(600);
+
 
   // Slide animation
   $('#slidertrigger').on('click', function() {
