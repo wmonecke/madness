@@ -14,7 +14,7 @@ const passport = require('passport');            // Passport packages
 const bcrypt = require('bcrypt');                // Encrypting password
 const flash = require('connect-flash');          // Flash message - controlling what to display! Relevant when we want to redirect the user somewhere else.
 const fbStrategy = require('passport-facebook').Strategy;
-const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+// const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const dotenv = require('dotenv');
 
 const User = require('./models/user-model.js');  // Requiring the user-model (which actually is the collection)
