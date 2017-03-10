@@ -108,22 +108,24 @@ body {
     top: 10vh;
     width: 100vw;
     background-color: lightgreen;
-    color: white;
+    color: black;
     font-size: 1em;
   }
 
 
   .login {
     display: none;
-    position: absolute;;
+    position: absolute;
     top:10vh;
     right: 2vw;
     width: 25vw;
     height: 70vh;
     float: left;
     background-color: rgba(0,0,0,0.9);
-    border: 1px solid white;
+    border: 2px solid rgba(255,255,255,0.7);
     border-top: 1px solid transparent;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 
       .wrapper {
 
@@ -585,18 +587,53 @@ body {
   }
 }
 
+.profilebackgroundimage{
+  position: absolute;
+  z-index: -3;
+  width: 100vw;
+  height: 100vh;
+  // background: url('../images/loggedin7.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
+.profilebackgroundopacity{
+  position: absolute;
+  z-index: -2;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
+.profilebackgroundoverlay {
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background: url('../images/overlays/05.png');
+}
+
 .profilebackground {
-  background-color: rgb(240,240,240);
+  color: white;
+  background-color: transparent;
   min-width: 1050px;
   height: 100vh;
   display: none;
+
+  #showgender {
+    display: none;
+  }
 
   nav {
     min-width: 1050px;
     position: fixed;
     width: 100vw;
     font-weight: 100;
-    box-shadow: 0em 0.05em 2em #cecece;
+    // box-shadow: 0em 0.05em 2em #cecece;
     height: 10vh;
     background-color: black;
     color: white;
@@ -666,10 +703,10 @@ body {
       content : "";
       position: absolute;
       left    : 10%;
-      bottom  : -2vh;
+      bottom  : -4vh;
       height  : 1px;
       width   : 80%;  /* or 100px */
-      border-bottom:1px solid black;
+      border-bottom:1px solid white;
     }
 
     p {
@@ -778,6 +815,7 @@ body {
         font-weight: lighter;
         font-size: 1.2em;
         position: relative;
+        top:5vh;
         left: 8%;
         text-align: center;
         padding: 1em;
@@ -791,6 +829,7 @@ body {
         font-size: 2em;
         position: relative;
         left: 22%;
+        top: 4vh;
         border-radius: 25px;
         border: 1px solid #72ce75;
         background-color: #72ce75;

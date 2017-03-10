@@ -45,6 +45,8 @@ $(document).ready( function() {
   let choseGuy = 0;
   let choseGirl = 0;
 
+
+
   $('#buttontwo1').on('click', function () {
     $(this).css('border-color', '#539cfa');
     $('#buttontwo2').css('border-color', 'white');
@@ -206,14 +208,29 @@ $(document).ready( function() {
   $('#buttonfivejq').on('click', function () {
     $('.loggedinbackground').fadeOut(2000);
   });
+  // --------- PROFILE BACKGROUND LOGIC --------
 
-  // USER INFO LOGIC
+  if ($('#showgender').html() === 'male') {
+    $('.profilebackgroundimage').css('background', 'url("../images/loggedin2.jpg") no-repeat center center fixed');
+    $('.profilebackgroundimage').css('background-size', 'cover');
+
+  }
+
+  if ($('#showgender').html() === 'female') {
+    $('.profilebackgroundimage').css('background', 'url("../images/loggedin7.jpg") no-repeat center center fixed');
+    $('.profilebackgroundimage').css('background-size', 'cover');
+  }
+
+
+  // -------------- USER INFO LOGIC ------------------
   if ($('#guy').attr('checked')) {
     $('#guy').css('pointer-events', 'none');
+    $('#genderinput').val('male');
   }
 
   if ($('#girl').attr('checked')) {
     $('#girl').css('pointer-events', 'none');
+    $('#genderinput').val('female');
   }
 
   $('#guy').on('click', function() {
@@ -235,7 +252,6 @@ $(document).ready( function() {
     //inputform logic
     $('#genderinput').val('female');
   });
-
 
 
   // My current goal logic
@@ -289,6 +305,7 @@ $(document).ready( function() {
     //inputform logic
     $('#goalinput').val('thin');
   });
+
 
 
 });

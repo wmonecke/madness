@@ -1,5 +1,10 @@
-<div class="profilebackground">
+<div class="profilebackgroundimage"></div>
 
+<div class="profilebackgroundopacity"></div>
+
+<div class="profilebackgroundoverlay"></div>
+
+<div class="profilebackground">
   <nav>
     <ul>
       <p> madness </p>
@@ -18,7 +23,6 @@
       <p> <a href="/logout"> Log Out </a> </p>
     </div>
   </div>
-
   <section class="userinfo">
     <div class="userpic">
       <img src="/images/loggedin6.jpg" alt="Profile Picture">
@@ -30,6 +34,8 @@
       <time id="date"></time>
     </div>
   </section>
+
+  <span id="showgender"><%= userInfo.gender %></span>
 
   <section class="routineinfo">
     <div class="workoutssofar">
@@ -49,7 +55,7 @@
 
       <h3> Workout name </h3>
 
-      <p> Are you ready to push yourself? </p>
+      <p> Are you ready to get <b><%= userInfo.goal %></b>, &nbsp<%= userInfo.firstName %>  ? </p>
 
       <button type="button" name="button"> <a href="#"> LET'S GO </a></button>
 
