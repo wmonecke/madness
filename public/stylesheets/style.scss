@@ -225,6 +225,9 @@ body {
 
     }
 
+  #freemessage {
+    display: none;
+  }
 
   h2 {
     margin: 12vh 0vw 25vh 0vw;
@@ -235,7 +238,7 @@ body {
 
   h5 {
     position: relative;
-    color: lightgrey;
+    color: white;
     top: -14vh;
     font-weight: 100;
     font-size: 1.5em;
@@ -1041,9 +1044,20 @@ body {
 
 // --------------------- USER SETTINGS CSS ----------------------
 
+.userinfobackgroundforreal {
+  position: absolute;
+  z-index: -2;
+  height: 100vh;
+  width: 100vw;
+  background: url('../images/loggedin4.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
 .userinfobackground {
   display: none;
-  background-color: rgb(240,240,240);
+  background-color: rgba(240,240,240,0.3);
   text-align: center;
   height: 100vh;
 
@@ -1071,7 +1085,7 @@ body {
     width: 80vw;
     height: 70vh;
     border-radius: 5px;
-    background-color: rgba(0,0,0,0.85);
+    background-color: rgba(0,0,0,0.9);
     position: relative;
     top: 10vh;
   }

@@ -5,6 +5,7 @@ $(document).ready(function () {
   $('.signupwrapper').fadeIn(600);
   $('.signupbackground').fadeIn(600);
   $('.userinfobackground').fadeIn(600);
+  $('#freemessage').fadeIn(5000);
 
 
   // Slide animation
